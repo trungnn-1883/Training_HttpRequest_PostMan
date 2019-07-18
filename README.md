@@ -61,7 +61,7 @@ Ngoài ra còn Upgrade-Insecure-Requests: 1equest
 
 + **Request headers**: như  User-Agent, Accept-Type, sửa request bằng việc chỉ định rõ hơn, đưa ra context (như Referer), ...
 
-+ **Entity headers**: như Content-Length, mà áp dụng cho body của request. Rõ ràng là ko có header nếu không có body ở trong r
++ **Entity headers**: như Content-Length, áp dụng cho body của request
 
 <img src="img/ht2.png"/>
 
@@ -102,11 +102,30 @@ Có 3 nhóm:
 
 Có 3 loại:
 
-+ Body 1 resource: gồm 1 file đơn lẻ biết trước kích thước, định nghĩa bởi 2 headers: Content-Type, Content_length
++ Body 1 resource: gồm 1 file đơn lẻ biết trước kích thước, định nghĩa bởi 2 headers: Content-Type(chỉ loại media của tài nguyên - MIME types), Content_length
 
 + Body 1 resource: gồm 1 file đơn lẻ không biết trước kích thước, mã hóa bởi các mảnh bằng Transfer-Encoding
 
 + Multiple-resource bodies: gồm một multipart body, mỗi cái chứa những thông tin khác nhau, rất hiếm tồn tại
+
+### d. HTTP/2 Frames
+
+- HTTP/1.x có một vài nhược điểm về hiệu suất:
+
++ Header, không giống như body, không nén được
+
++ Header thường giống nhau giữa các message, và nó cũng bị lăp lại giữa các kết nối
+
++ Không ghép kênh có thể được thực hiện, nhiều kết nối cần mở trên cùng 1 server.
+
+HTTP/2 thêm tính năng: nó chia HTTP/1.x message thành các frame mà sẽ được gắn vào 1 luồng. Dữ liệu và header frame được tách ra, điều này giúp header nén được. 
+
+<img src="img/ht4.png"/>
+
+Nhiều luồng có thể được kết hợp với nhau, giúp tạo ra ghép kênh, tối ưu sử dụng băng thông, tiết kiệm thời gian
+
+<img src="img/ht5.png"/>
+
 
 
 
