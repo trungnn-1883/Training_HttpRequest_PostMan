@@ -74,7 +74,7 @@ Body 1 resource: gồm 1 file đơn lẻ, định nghĩa bởi 2 headers: Conten
 
 Multiple-resource bodies: gồm một multipart body, mỗi cái bao gồm những bit khác nhau của thông thường
 
-### c. Http resp
+### c. Http response
 
 - **Start-line** gồm 3 thành phần: 
 
@@ -125,6 +125,73 @@ HTTP/2 thêm tính năng: nó chia HTTP/1.x message thành các frame mà sẽ �
 Nhiều luồng có thể được kết hợp với nhau, giúp tạo ra ghép kênh, tối ưu sử dụng băng thông, tiết kiệm thời gian
 
 <img src="img/ht5.png"/>
+
+
+### e. Http request method
+
+HTTP định nghĩa một set các phương thức request để chỉ định action có thể thực hiện với một resource có sẵn.
+
+Có nhiều method như:
+
+- GET: thường dùng GET để lấy dữ liệu
+
+- HEAD: yêu cầu có kết quả trả về như GET, nhưng không có body
+
+- POST: thường là để gửi 1 đối tượng lên server, nhằm thay đổi dữ liệu hoặc tác dụng nào đó
+
+- PUT: thay thế toàn bộ  thông tin của đối tượng hiện tại bằng cái gửi lên
+
+- PATCH: ghi đè các thông tin được thay đổi của đối tượng.
+
+- CONNECT: thiết lập 1 kết nối tới server theo URL
+
+- OPTIONS: mô tả các tùy chọn giao tiếp cho resource
+
+ So sánh
+
+### GET vs POST
+
+Liệu GET có thể dùng để đầy dữ liệu lên và POST để lấy dữ liệu về
+
+==> Hoàn toàn được
+
+Nhưng không nên vì nó sẽ phá vỡ quy tắc thiết kế. Và GET thì không có body nên khi gửi thì tất cả các parameter sẽ bị hiển thị lên url của request, xét về bảo mật
+thì đây sẽ không tốt. Post nó giấu paremeter trong Body và mã hóa chúng, sẽ an toàn hơn
+
+Ví dụ: 
+
+```
+GET http://demo7904624.mockable.io/getAllNote?**one=1123&two=2123** http/1.1
+```
+
+```
+POST /test/demo_form.php HTTP/1.1
+Host: w3schools.com
+
+name1=value1&name2=value2
+```
+
+
+### POST/PUT/PATCH
+
+Điểm khác biệt giữa post và put đơn giản là put là idempotent còn post thì không. Kết quả của PUT sẽ luôn như nhau,
+còn POST sẽ tạo ra các kết quả khác nhau
+
+post: tạo mới
+put: ghi đè(toàn bộ) hoặc tạo mới 1 resource
+patch: cập một 1 phần của resource
+
+### SAFE
+
+Một method được coi là safe khi nó không làm thay đổi trạng thái "sate" của server.
+
+Nói cách khác, an toàn là chỉ đọc mà không làm thay đổi bất kì điều gì. 
+
+Các method được coi là safe chỉ có: GET, HEAD và OPTIONS.
+
+Unsafe: PUT, DELETE, POST và PATCH.
+
+
 
 
 
