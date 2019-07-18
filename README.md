@@ -241,7 +241,62 @@ Ví dụ: nhiều loại MIME được sử dụng khi đính kèm nhiều tệp
 
 + multipart: dữ liệu bao gồm nhiều thành phần có thể có các loại MIME khác nhau.
 
+### b. 
 
+Có 3 phương thức encode hay dùng
+
+application/x-www-form-urlencoded (the default): khi không muốn gửi file, url đã được mã hóa
+
+Dạng Key và value được encode, thêm dấu & để tách, giá trị được cho dấu "=". Các kí tự không phải số, kí tự sẽ được mã hóa.
+
+Ví dụ: firstname=nguyen%20ngoc&lastname=trung
+
+Với file3 là tên file, file ko được gửi
+```
+POST / HTTP/1.1
+[[ Less interesting headers ... ]]
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 51
+
+text1=text+default&text2=a%CF%89b&file1=a.txt&file2=a.html&file3=binary
+```
+
+multipart/form-data: khi bạn muốn gửi file lên server
+
+Chú ý đến 2 cái:
+
+Content-Type Header: là dạng multipart/form-data, nhưng nó có thêm boundary.
+Được sinh bởi trình duyệt
+
+Request Body: có dạng
+
+```
+--<<boundary_value>>
+Content-Disposition: form-data; name="<<field_name>>"
+
+<<field_value>>
+```
+
+Ví dụ:  
+
+boundary=XXX
+
+```
+--XXX
+Content-Disposition: form-data; name="username"
+
+sidthesloth
+--XXX
+Content-Disposition: form-data; name="password"
+
+slothsecret
+--XXX--
+```
+
+
+
+
+text/plain: dạng mới trong HTML5, chỉ đơn giản gửi data mà ko có mã hóa
 
 
 
