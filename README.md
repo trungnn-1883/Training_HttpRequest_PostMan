@@ -178,7 +178,9 @@ name1=value1&name2=value2
 còn POST sẽ tạo ra các kết quả khác nhau
 
 post: tạo mới
+
 put: ghi đè(toàn bộ) hoặc tạo mới 1 resource
+
 patch: cập một 1 phần của resource
 
 ### SAFE
@@ -190,6 +192,57 @@ Nói cách khác, an toàn là chỉ đọc mà không làm thay đổi bất k�
 Các method được coi là safe chỉ có: GET, HEAD và OPTIONS.
 
 Unsafe: PUT, DELETE, POST và PATCH.
+
+### 2. MIME type
+
+### a. Tổng quan
+
+- Giao thức mở rộng thư điện tử Internet đa mục đích hay MIME (Multipurpose Internet Mail Extensions) là một tiêu chuẩn Internet về định dạng cho thư điện tử. 
+Hầu như mọi thư điện tử Internet được truyền qua giao thức SMTP theo định dạng MIME. Ngoài ra nó còn xác định kiểu định dạng của document, file, 
+
+- Cấu trúc: type/subtype
+
++ Type: tổng quan về loại data, ví dụ như video, text
+
++ Subtype: chi tiết hơn cho Type. 
+
+Ví dụ như text/plain (plain text), text/html (htlm source code)
+
+
+ **Type**
+
+**Discrete**(rời rạc): đại diện cho 1 tệp hoặc phương tiện, chẳng hạn như 1 tệp văn bản, nhạc hoặc video.
+
+- Có nhiều loại như: 
+
+application: bất kì loại dữ liệu nhị phân nào không rơi vào các loại khác, dữ liệu sẽ được thực thi theo cách nào đó hoặc cần một ứng dụng hoặc danh mục ứng dụng cụ thể để sử 
+
+Ví dụ: application/pdf, application/pkcs8, and application/zip.
+
+audio: audio hoặc dữ liệu nhạc, bao gồm audio/mpeg, audio/vorbis
+
+example: chỉ là để ví dụ, ko nên dùng trong thực tế
+
+image: ảnh hoặc dữ liệu đồ họa, gồm bitmap, vector, ảnh GIF, ... Ví dụ như image/jpeg, image/png,
+image/svg+xml
+
+model: mẫu dữ liệu cho 3D object hoặc scene. Ví dụ model/3mf, model/vml 
+
+video: video data hoặc file, ví dụ như MP4 movies(video/mp4) 
+
+
+**Multipart**: một tài liệu bao gồm nhiều thành phần, mỗi phần có một lại MIME riêng, hoặc 1 loại nhiều phần có thể gói gọn nhiều tệp cùng nhau trong 1 giao dịch. Được gọi là tài liệu tổng h
+
+Ví dụ: nhiều loại MIME được sử dụng khi đính kèm nhiều tệp vào email.
+
+- Có 2 loại:
+
++ message: message đóng gói message khác ở trong.
+
++ multipart: dữ liệu bao gồm nhiều thành phần có thể có các loại MIME khác nhau.
+
+
+
 
 
 
