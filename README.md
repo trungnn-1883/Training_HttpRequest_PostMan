@@ -18,27 +18,25 @@ Http request và response có chung cấu trúc như sau:
 
 - **HTTP headers**: có thể có hoặc không, chứa các thông tin của request (host, content-length, encoding, ...)  hoặc miêu tả phần body của message
 
-- **Dòng kẻ trống**: một dòng trống cho biết tất cả thông tin meta cho yêu cầu đã được gửi.
+- **Dòng kẻ trống**: là phần phần tách giữa header vs body
 
-- **body**: Phần thân tùy chọn chứa dữ liệu được liên kết với r (như nội dung của biểu mẫu HTML) hoặc tài liệu được liên kết với reponse.
+- **body**: Phần thân tùy chọn chứa dữ liệu được liên kết với request (như nội dung của biểu mẫu HTML) hoặc tài liệu được liên kết với reponse.
 
-Sự hiện diện của cơ thể và kích thước của nó được chỉ định bởi các tiêu đề bắt đầu và HTTP.
+Phần body được tính sau dòng kẻ trống và kích thước của nó được chỉ định bởi các HTTP headers.
 
-
-start-line + HTTP headers = head của r
-equest
+start-line + HTTP headers = head của request
 
 <img src="img/ht1.png"/>
 
 ### b. Http requests
 
-- **Start-line** gồm 3 thành phần: 
+ - **Start-line** gồm 3 thành phần: 
 
 + HTTP method (như GET, PUT, POST, HEAD, OPTIONS, ...): miêu tả hành động sẽ được thực hiện
 
 Ví dụ: GET là lấy dữ liệu từ server, POST là gửi dữ liệu lên server
 
-+ **Request target**: mục tiêu request, thường là URL, hoặc đường dẫn của giao thức, cổng, ...
++**Request target**: mục tiêu request, thường là URL, hoặc đường dẫn của giao thức, cổng, ...
 
 ```
 POST / HTTP/1.1
@@ -47,25 +45,25 @@ HEAD /test.html?query=alibaba HTTP/1.1
 GET http://developer.mozilla.org/en-US/docs/Web/HTTP/Messages HTTP/1.1
 ```
 
-+ **Phiên bản HTTP**:  định nghĩa cấu trúc còn lại của message, cũng là phiên bản của reponse trả về
++**Phiên bản HTTP**:  định nghĩa cấu trúc còn lại của message, cũng là phiên bản của reponse trả về
 
-- **HTTP headers**: cấu trúc dạng key : value, có thể được chia thành nhiều nhóm:
+ - **HTTP headers**: cấu trúc dạng key : value, có thể được chia thành nhiều nhóm:
 
-+ **General headers**: áp dụng cho cả message request và response, ko liên quan gì đến data được truyền trong body
++**General headers**: áp dụng cho cả message request và response, ko liên quan gì đến data được truyền trong body
 
 Ví dụ: Connection: keep-alive: kiểm soát xem kết nối mạng có mở hay không sau khi giao dịch hiện tại kết thúc.
 
  Nếu giá trị được gửi là keep-alive, kết nối vẫn tồn tại và không bị đóng, cho phép các yêu cầu tiếp theo đến cùng một máy chủ được thực hiện.
 
-Ngoài ra còn Upgrade-Insecure-Requests: 1equest
+Ngoài ra còn Upgrade-Insecure-Requests: 1
 
-+ **Request headers**: như  User-Agent, Accept-Type, sửa request bằng việc chỉ định rõ hơn, đưa ra context (như Referer), ...
++**Request headers**: như  User-Agent, Accept-Type, sửa request bằng việc chỉ định rõ hơn, đưa ra context (như Referer), ...
 
-+ **Entity headers**: như Content-Length, áp dụng cho body của request
++**Entity headers**: như Content-Length, áp dụng cho body của request
 
 <img src="img/ht2.png"/>
 
-- **Body**: không phải request nào cũng có body, request lấy dữ liệu về như GET, HEAD, DELETE, OPTIONS thường không có. Request gửi data tới server
+ - **Body**: không phải request nào cũng có body, request lấy dữ liệu về như GET, HEAD, DELETE, OPTIONS thường không có. Request gửi data tới server
 để update nó như POST thì có
 
 Body được chia làm 2 loại:
@@ -297,7 +295,7 @@ Trong Postman:
 
 <img src="img/ht8.png">
 
-R
+Request message "filename="/home/nguyen.ngoc.trungc/Documents/Retrofit"
 
 ```
 POST /post HTTP/1.1
