@@ -245,13 +245,14 @@ Ví dụ: nhiều loại MIME được sử dụng khi đính kèm nhiều tệp
 
 Có 3 phương thức encode hay dùng
 
-application/x-www-form-urlencoded (the default): khi không muốn gửi file, url đã được mã hóa
+**application/x-www-form-urlencoded** (the default): khi không muốn gửi file, url đã được mã hóa
 
 Dạng Key và value được encode, thêm dấu & để tách, giá trị được cho dấu "=". Các kí tự không phải số, kí tự sẽ được mã hóa.
 
 Ví dụ: firstname=nguyen%20ngoc&lastname=trung
 
 Với file3 là tên file, file ko được gửi
+
 ```
 POST / HTTP/1.1
 [[ Less interesting headers ... ]]
@@ -261,7 +262,7 @@ Content-Length: 51
 text1=text+default&text2=a%CF%89b&file1=a.txt&file2=a.html&file3=binary
 ```
 
-multipart/form-data: khi bạn muốn gửi file lên server
+**multipart/form-data**: khi bạn muốn gửi file lên server
 
 Chú ý đến 2 cái:
 
@@ -292,12 +293,17 @@ Content-Disposition: form-data; name="password"
 slothsecret
 --XXX--
 ```
+Trong Postman:
 
-text/plain: dạng mới trong HTML5, chỉ đơn giản gửi data mà ko có mã hóa
+<img src="img/ht8.png">
+
+**text/plain**: dạng mới trong HTML5, chỉ đơn giản gửi data mà ko có mã hóa
 
 ### II. Postman
 
 ### 1. HTTP Request 
+
+Postman cung cấp các lựa chọn sau:
 
 <img src="img/ht6.png">
 
