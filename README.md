@@ -293,10 +293,31 @@ slothsecret
 --XXX--
 ```
 
-
-
-
 text/plain: dạng mới trong HTML5, chỉ đơn giản gửi data mà ko có mã hóa
+
+### II. Postman
+
+### 1. HTTP Request 
+
+<img src="img/ht6.png">
+
+Params: các tham số truyền vào thêm, sẽ được thêm vào URL
+
+Request Method: GET, POST, PUT, PATCH, ...
+
+Request URL: link URL
+
+Authorization: lựa chọn các loại Authen 
+
+Request Headers: dạng Key - Value, thêm các thuộc tính cho header
+
+Request Body: body của message
+
+Pre-request Script: code thực hiện trước khi request được gửi
+
+Tests: có thể viết code để test cho mỗi request được gửi đi
+
+<img src="img/ht7.png">
 
 
 
