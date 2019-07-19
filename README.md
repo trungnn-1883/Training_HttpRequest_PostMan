@@ -297,6 +297,21 @@ Trong Postman:
 
 <img src="img/ht8.png">
 
+R
+
+```
+POST /post HTTP/1.1
+Host: postman-echo.com
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+cache-control: no-cache
+Postman-Token: ecd23245-62c5-4aad-9289-cc9b303567ff
+
+Content-Disposition: form-data; name=""; filename="/home/nguyen.ngoc.trungc/Documents/Retrofit
+
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+```
+
 **text/plain**: dạng mới trong HTML5, chỉ đơn giản gửi data mà ko có mã hóa
 
 ### II. Postman
