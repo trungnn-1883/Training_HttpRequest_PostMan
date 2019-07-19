@@ -32,11 +32,11 @@ start-line + HTTP headers = head của request
 
  - **Start-line** gồm 3 thành phần: 
 
-+ HTTP method (như GET, PUT, POST, HEAD, OPTIONS, ...): miêu tả hành động sẽ được thực hiện
++HTTP method (như GET, PUT, POST, HEAD, OPTIONS, ...): miêu tả hành động sẽ được thực hiện
 
 Ví dụ: GET là lấy dữ liệu từ server, POST là gửi dữ liệu lên server
 
-+**Request target**: mục tiêu request, thường là URL, hoặc đường dẫn của giao thức, cổng, ...
++Request target: mục tiêu request, thường là URL, hoặc đường dẫn của giao thức, cổng, ...
 
 ```
 POST / HTTP/1.1
@@ -45,11 +45,11 @@ HEAD /test.html?query=alibaba HTTP/1.1
 GET http://developer.mozilla.org/en-US/docs/Web/HTTP/Messages HTTP/1.1
 ```
 
-+**Phiên bản HTTP**:  định nghĩa cấu trúc còn lại của message, cũng là phiên bản của reponse trả về
++Phiên bản HTTP:  định nghĩa cấu trúc còn lại của message, cũng là phiên bản của reponse trả về
 
  - **HTTP headers**: cấu trúc dạng key : value, có thể được chia thành nhiều nhóm:
 
-+**General headers**: áp dụng cho cả message request và response, ko liên quan gì đến data được truyền trong body
++General headers: áp dụng cho cả message request và response, ko liên quan gì đến data được truyền trong body
 
 Ví dụ: Connection: keep-alive: kiểm soát xem kết nối mạng có mở hay không sau khi giao dịch hiện tại kết thúc.
 
@@ -57,9 +57,9 @@ Ví dụ: Connection: keep-alive: kiểm soát xem kết nối mạng có mở h
 
 Ngoài ra còn Upgrade-Insecure-Requests: 1
 
-+**Request headers**: như  User-Agent, Accept-Type, sửa request bằng việc chỉ định rõ hơn, đưa ra context (như Referer), ...
++Request headers: như  User-Agent, Accept-Type, sửa request bằng việc chỉ định rõ hơn, đưa ra context (như Referer), ...
 
-+**Entity headers**: như Content-Length, áp dụng cho body của request
++Entity headers: như Content-Length, áp dụng cho body của request
 
 <img src="img/ht2.png"/>
 
@@ -88,11 +88,11 @@ Ví dụ: HTTP/1.1 404 Not Found.
 
 Có 3 nhóm:
 
-- **General headers**: áp dụng cho cả message 
+- General headers: áp dụng cho cả message 
 
-- **Response headers**: bổ thêm thông tin về server 
+- Response headers: bổ thêm thông tin về server 
 
-- **Entity headers**: áp dụng tới body của reponse, như Content-Length
+- Entity headers: áp dụng tới body của reponse, như Content-Length
 
 <img src="img/ht3.png"/>
 
